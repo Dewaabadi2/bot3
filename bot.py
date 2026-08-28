@@ -25,12 +25,9 @@ async def main(nama, email, c):
         # 1. Buka halaman website
         print("Membuka halaman website...")
         await page.goto("https://virtual-expo.lkpp.go.id/visitor/register")
-        #await page.screenshot(path="01_halaman_awal.png")
         # 2. Isi data berdasarkan ID elemen (#id_elemen)
         # Ganti 'username_input' dan 'password_input' dengan ID asli di website
         print("Mengisi formulir...")
-        # await page.fill("#Nama", "user_anda")
-        # await page.fill("#Email", "email_anda")
         await page.fill("#profile_name", nama)
         await page.fill("#profile_email", email)
         await page.fill("#profile_company_name", "Kementerian Imigrasi dan Pemasyarakatan")
@@ -90,29 +87,13 @@ async def main(nama, email, c):
         #Whatsapp
         await page.mouse.click(370, 770)
         await page.wait_for_timeout(2000)
-        namaGambar = f"{c:03d}.png"
-        await page.screenshot(path=namaGambar)
+        #namaGambar = f"{c:03d}.png"
+        #await page.screenshot(path=namaGambar)
 
         #Live chat
         await page.mouse.click(360, 669)
         await page.wait_for_timeout(2000)
-        #await page.screenshot(path="11.png")
-        #await page.screenshot(path="12.png")
-
-        #aktif chat
-        #await page.wait_for_timeout(3000)
-        #await page.mouse.click(512, 1230)
-        #await page.wait_for_timeout(1000)
-        #await page.screenshot(path="13.png")
-        
-        #Ketik pesan
-        #await page.wait_for_timeout(5000)
-        #await page.keyboard.type("Halo admin")
-        #await page.screenshot(path="14.png")
-        #await page.wait_for_timeout(1000)
-        #await page.keyboard.press("Enter")
-        #await page.wait_for_timeout(3000)
-        #await page.screenshot(path="15.png")
+        print(f"Akun no.{c} Selesai")
         await browser.close()
 
 if __name__ == "__main__":
